@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:notesapp/widght/notes_niew_body.dart';
 
@@ -7,8 +6,17 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: NotesViewBody(),
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: const Color(0xff63EBCB).withOpacity(1),
+        shape: CircleBorder(
+          // تحكم في قيمة الـ radius للحصول على الشكل المطلوب
+        ),
+        child: Icon(Icons.add),
+      ),
+
+      body: const NotesViewBody(),
     );
   }
 }
