@@ -25,6 +25,7 @@ class NotesView extends StatelessWidget {
       ),
 
       body: const NotesViewBody(),
+      backgroundColor: Color(0xff211837),
     );
   }
 }
