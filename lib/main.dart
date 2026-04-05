@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:notesapp/constans_file.dart';
 import 'package:notesapp/views/notes_view.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(knotesBox);
   runApp(const NotesApp());
 }
 
