@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:notesapp/constans_file.dart';
 
 class CustomTextfelid extends StatelessWidget {
-   CustomTextfelid({super.key, required this.hint,  this.maxlines=1});
- final String hint;
-   final int maxlines;
-
+   CustomTextfelid(
+     {   this.onSaved,
+    super.key,
+    required this.hint,
+    this.maxlines = 1,
+  });
+  final String hint;
+  final int maxlines;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TextField(maxLines:maxlines ,
+    return TextFormField(
+      maxLines: maxlines,
+      onSaved: onSaved,
+      validator: (value) {
+        if (value?.isEmpty ?? true) {
+          return 'felid is requred';
+        } else {
+          return null;
+        }
+      },
       cursorColor: KprimaryColore,
       decoration: InputDecoration(
         hintText: hint,
