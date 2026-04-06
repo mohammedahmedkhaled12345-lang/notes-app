@@ -38,7 +38,7 @@ class NoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Text(
-                  'Bulid Your Career With MEAKH ',
+                  'Bulid Your Career With MEAKH 😘',
                   style: TextStyle(color: Colors.black.withOpacity(.7)),
                 ),
               ),
