@@ -40,22 +40,27 @@ class _CustomFormWidgetState extends State<AddNoteForm> {
             },
           ),
           const SizedBox(height: 32),
-          CustomBottom(
-            ontap: () {
-              if (formkay.currentState!.validate()) {
-                formkay.currentState!.save();
-                var noteModel = NotesModel(
-                  titel: titel!,
-                  subTitel: subtitel!,
-                  date: DateTime.now().toString(),
-                  color: Colors.blue.value,
-                );
+          BlocBuilder<AddNotesCubit, AddNotesState>(
+            builder: (context, state) {
+              return CustomBottom(
+                isloadig: state is AddNotesLoadind?true:false ,
+                ontap: () {
+                  if (formkay.currentState!.validate()) {
+                    formkay.currentState!.save();
+                    var noteModel = NotesModel(
+                      titel: titel!,
+                      subTitel: subtitel!,
+                      date: DateTime.now().toString(),
+                      color: Colors.blue.value,
+                    );
 
-                BlocProvider.of<AddNotesCubit>(context).ddNote(noteModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+                    BlocProvider.of<AddNotesCubit>(context).ddNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
           const SizedBox(height: 20),

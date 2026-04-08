@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:notesapp/constans_file.dart';
 
 class CustomBottom extends StatelessWidget {
-  const CustomBottom({super.key, this.ontap, });
-final void Function()? ontap;
+  const CustomBottom({super.key, this.ontap,  this.isloadig=false});
+  final bool isloadig;
+  final void Function()? ontap;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap:ontap ,
+    return GestureDetector(
+      onTap: ontap,
       child: Container(
         width: MediaQuery.of(context).size.width,
         height: 55,
@@ -15,7 +17,7 @@ final void Function()? ontap;
           borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
-          child: Text(
+          child:isloadig?CircularProgressIndicator() :Text(
             'Add',
             style: TextStyle(
               color: Colors.black,
