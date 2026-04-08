@@ -5,16 +5,4 @@ sealed class NotesCubotState {}
 
 final class NotesCubotInitial extends NotesCubotState {}
 
-final class NotesCubotSucsses extends NotesCubotState {
-  final List<NotesModel> notes;
 
-  NotesCubotSucsses( this.notes);
-}
-
-final class NotesCubotfaliure extends NotesCubotState {
-  final String errorMasseg;
-
-  NotesCubotfaliure( this.errorMasseg);
-}
-
-final class NotesCubotoading extends NotesCubotState {}
