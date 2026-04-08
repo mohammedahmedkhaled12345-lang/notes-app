@@ -11,5 +11,5 @@ class AddNotesSucsses extends AddNotesState {}
 class AddNotesFulier extends AddNotesState {
  final String errorMassege;
 
-  AddNotesFulier({required this.errorMassege});
+  AddNotesFulier(this.errorMassege);
 }
