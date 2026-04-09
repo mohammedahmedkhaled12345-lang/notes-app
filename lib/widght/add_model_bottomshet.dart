@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notesapp/cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notesapp/cubits/add_notes_cubit/cubit/notes_cubot_cubit.dart';
 import 'package:notesapp/widght/add_note_form.dart';
 
 class AddNotesBottomShet extends StatelessWidget {
@@ -11,7 +12,12 @@ class AddNotesBottomShet extends StatelessWidget {
     return BlocProvider(
       create: (context) => AddNotesCubit(),
       child: BlocConsumer<AddNotesCubit, AddNotesState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is AddNotesSucsses) {
+            BlocProvider.of<NotesCubotCubit>(context).fatchAllotes();
+            Navigator.pop(context);
+          }
+        },
         builder: (context, state) {
           return AbsorbPointer(
             absorbing: state is AddNotesLoadind ? true : false,
