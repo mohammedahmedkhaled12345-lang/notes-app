@@ -6,7 +6,7 @@ import 'package:notesapp/widght/custom_textfelid.dart';
 import 'package:notesapp/widght/custtom_bittom.dart';
 
 class AddNoteForm extends StatefulWidget {
-  AddNoteForm({super.key});
+  const AddNoteForm({super.key});
 
   @override
   State<AddNoteForm> createState() => _CustomFormWidgetState();

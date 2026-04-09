@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notesapp/constans_file.dart';
 
 class CustomTextfelid extends StatelessWidget {
-   CustomTextfelid(
+   const CustomTextfelid(
      {   this.onSaved,
     super.key,
     required this.hint,

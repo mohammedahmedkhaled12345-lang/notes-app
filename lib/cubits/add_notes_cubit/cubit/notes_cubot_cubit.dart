@@ -8,12 +8,13 @@ part 'notes_cubot_state.dart';
 
 class NotesCubotCubit extends Cubit<NotesCubotState> {
   NotesCubotCubit() : super(NotesCubotInitial());
-  List<NotesModel>? notes;
-  fatchAllotes(NotesModel note) async {
+  List<NotesModel> notes=[];
+  void fatchAllotes()  {
     
 
     var notesBox = Hive.box<NotesModel>(knotesBox);
      notes = notesBox.values.toList();
+     emit(NotesCubotSuccess());
     
   }
 }
