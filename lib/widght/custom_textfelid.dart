@@ -6,8 +6,9 @@ class CustomTextfelid extends StatelessWidget {
      {   this.onSaved,
     super.key,
     required this.hint,
-    this.maxlines = 1,
+    this.maxlines = 1, this.onchanged,
   });
+  final void Function(String)? onchanged;
   final String hint;
   final int maxlines;
   final void Function(String?)? onSaved;
@@ -16,6 +17,7 @@ class CustomTextfelid extends StatelessWidget {
     return TextFormField(
       maxLines: maxlines,
       onSaved: onSaved,
+      onChanged: onchanged,
       validator: (value) {
         if (value?.isEmpty ?? true) {
           return 'felid is requred';

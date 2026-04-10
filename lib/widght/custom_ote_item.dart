@@ -10,16 +10,20 @@ class NoteItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) {
-              return EditNoteView();
-            },
-          ),
+     onTap: () {
+  Navigator.push(
+    context, // الـ context الأصلي بتاع الصفحة
+    MaterialPageRoute(
+      builder: (newContext) { // غيرنا الاسم هنا عشان ميتلخبطش
+        return BlocProvider.value(
+          // استخدمنا context اللي فوق (السطر رقم 11)
+          value: BlocProvider.of<NotesCubotCubit>(context), 
+          child: EditNoteView(note: note),
         );
       },
+    ),
+  );
+},
       child: Container(
         padding: EdgeInsets.only(left: 16, right: 0),
         decoration: BoxDecoration(
