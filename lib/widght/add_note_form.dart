@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:notesapp/cubits/add_notes_cubit/add_notes_cubit.dart';
 import 'package:notesapp/model/notes_model.dart';
+import 'package:notesapp/widght/color_item.dart';
+import 'package:notesapp/widght/colors_listview.dart';
 import 'package:notesapp/widght/custom_textfelid.dart';
 import 'package:notesapp/widght/custtom_bittom.dart';
 
@@ -41,10 +43,12 @@ class _CustomFormWidgetState extends State<AddNoteForm> {
             },
           ),
           const SizedBox(height: 32),
+      
+ColorsListview(),
           BlocBuilder<AddNotesCubit, AddNotesState>(
             builder: (context, state) {
               return CustomBottom(
-                isloadig: state is AddNotesLoadind?true:false ,
+                isloadig: state is AddNotesLoadind ? true : false,
                 ontap: () {
                   if (formkay.currentState!.validate()) {
                     formkay.currentState!.save();
